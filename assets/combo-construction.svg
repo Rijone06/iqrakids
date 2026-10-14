@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 390" role="img" aria-label="রঙিন কাঠের নির্মাণ খেলনা">
+  <defs>
+    <linearGradient id="wall" x2="0" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#faf9f5"/></linearGradient>
+    <linearGradient id="wood" x2="0" y2="1"><stop stop-color="#f4d5a5"/><stop offset="1" stop-color="#d5a66c"/></linearGradient>
+    <filter id="shade" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="9"/></filter>
+  </defs>
+  <rect width="640" height="390" fill="url(#wall)"/>
+  <path d="M0 284 Q320 270 640 284 V390 H0Z" fill="#e8d5b9"/>
+  <path d="M0 285 Q320 272 640 285" fill="none" stroke="#d5b992" stroke-width="5"/>
+  <ellipse cx="326" cy="321" rx="246" ry="22" fill="#665544" opacity=".2" filter="url(#shade)"/>
+  <g stroke="#8a542f" stroke-opacity=".15" stroke-width="5" stroke-linejoin="round">
+    <path d="M118 280 151 187 184 280Z" fill="#0aa28c"/><path d="M151 188 182 278" fill="none" stroke="#ef6b34" stroke-width="16" stroke-linecap="round"/>
+    <path d="M218 280 252 170 286 280Z" fill="#f4a91e"/><path d="M252 172 286 278" fill="none" stroke="#42a66d" stroke-width="16" stroke-linecap="round"/>
+    <path d="M285 280 329 143 373 280Z" fill="#53aa67"/><path d="M329 145 373 278" fill="none" stroke="#ef633d" stroke-width="16" stroke-linecap="round"/>
+    <path d="M380 280 423 163 466 280Z" fill="#edaa25"/><path d="M423 165 466 278" fill="none" stroke="#58a5a0" stroke-width="16" stroke-linecap="round"/>
+    <path d="M126 226h97M252 218h105M328 199h97" fill="none" stroke="#d94231" stroke-width="15" stroke-linecap="round"/>
+    <g fill="#e84632" stroke="#aa392b"><circle cx="151" cy="187" r="14"/><circle cx="252" cy="170" r="14"/><circle cx="329" cy="143" r="14"/><circle cx="423" cy="163" r="14"/></g>
+    <g fill="#f2c522" stroke="#c89d17"><circle cx="184" cy="280" r="14"/><circle cx="286" cy="280" r="14"/><circle cx="373" cy="280" r="14"/><circle cx="466" cy="280" r="14"/></g>
+    <path d="M83 304h75" stroke="#078ba5" stroke-width="16" stroke-linecap="round"/><path d="M171 318h63" stroke="#ec6040" stroke-width="17" stroke-linecap="round"/><path d="M397 315h70" stroke="#0e9a7a" stroke-width="16" stroke-linecap="round"/><path d="M482 301h52" stroke="#e7a51a" stroke-width="17" stroke-linecap="round"/>
+    <path d="M199 297h21v30h-21z" fill="#eeb327"/><circle cx="209" cy="295" r="12" fill="#ffcf45"/><path d="M348 299h22v29h-22z" fill="#3c9db1"/><circle cx="359" cy="298" r="12" fill="#58bac4"/>
+  </g>
+</svg>

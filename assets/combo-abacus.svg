@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 390" role="img" aria-label="কাঠের রঙিন গণনা অ্যাবাকাস">
+  <defs>
+    <linearGradient id="bg" x2="0" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f8f8f5"/></linearGradient>
+    <linearGradient id="frame" x2="1"><stop stop-color="#d79a5e"/><stop offset=".5" stop-color="#f0c083"/><stop offset="1" stop-color="#bd7c43"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><feGaussianBlur stdDeviation="10"/></filter>
+  </defs>
+  <rect width="640" height="390" fill="url(#bg)"/>
+  <ellipse cx="320" cy="342" rx="145" ry="18" fill="#625548" opacity=".16" filter="url(#shadow)"/>
+  <g stroke="#8f5b33" stroke-opacity=".13" stroke-width="4" stroke-linejoin="round">
+    <path d="M205 325 214 86q1-13 12-13t12 13l-8 239z" fill="url(#frame)"/>
+    <path d="M401 325 410 86q1-13 12-13t12 13l-8 239z" fill="url(#frame)"/>
+    <path d="M217 323h-33l10 16h204l10-16h-34" fill="#d9a36c"/>
+    <g fill="none" stroke="#bd8452" stroke-width="5" stroke-linecap="round">
+      <path d="M231 110h184"/><path d="M230 139h185"/><path d="M229 168h186"/><path d="M228 197h187"/><path d="M227 226h188"/><path d="M226 255h189"/><path d="M225 284h190"/>
+    </g>
+    <g stroke="#fff" stroke-opacity=".17" stroke-width="2">
+      <g fill="#139d70"><circle cx="302" cy="110" r="10"/><circle cx="322" cy="110" r="10"/><circle cx="342" cy="110" r="10"/><circle cx="362" cy="110" r="10"/><circle cx="382" cy="110" r="10"/></g>
+      <g fill="#e84e3c"><circle cx="252" cy="139" r="10"/><circle cx="272" cy="139" r="10"/><circle cx="292" cy="139" r="10"/><circle cx="312" cy="139" r="10"/><circle cx="332" cy="139" r="10"/><circle cx="352" cy="139" r="10"/></g>
+      <g fill="#e5a32b"><circle cx="282" cy="168" r="10"/><circle cx="302" cy="168" r="10"/><circle cx="322" cy="168" r="10"/><circle cx="342" cy="168" r="10"/><circle cx="362" cy="168" r="10"/></g>
+      <g fill="#277eae"><circle cx="242" cy="197" r="10"/><circle cx="262" cy="197" r="10"/><circle cx="282" cy="197" r="10"/><circle cx="302" cy="197" r="10"/><circle cx="322" cy="197" r="10"/><circle cx="342" cy="197" r="10"/><circle cx="362" cy="197" r="10"/></g>
+      <g fill="#d75e37"><circle cx="272" cy="226" r="10"/><circle cx="292" cy="226" r="10"/><circle cx="312" cy="226" r="10"/><circle cx="332" cy="226" r="10"/><circle cx="352" cy="226" r="10"/><circle cx="372" cy="226" r="10"/></g>
+      <g fill="#159a72"><circle cx="252" cy="255" r="10"/><circle cx="272" cy="255" r="10"/><circle cx="292" cy="255" r="10"/><circle cx="312" cy="255" r="10"/><circle cx="332" cy="255" r="10"/><circle cx="352" cy="255" r="10"/><circle cx="372" cy="255" r="10"/></g>
+      <g fill="#e6a72e"><circle cx="282" cy="284" r="10"/><circle cx="302" cy="284" r="10"/><circle cx="322" cy="284" r="10"/><circle cx="342" cy="284" r="10"/><circle cx="362" cy="284" r="10"/></g>
+    </g>
+  </g>
+</svg>

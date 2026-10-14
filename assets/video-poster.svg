@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="রঙিন শিক্ষামূলক কাঠের খেলনা">
+  <defs>
+    <linearGradient id="bg" x2="0" y2="1"><stop stop-color="#f2f0ee"/><stop offset=".78" stop-color="#e9e7e5"/><stop offset="1" stop-color="#d9d7d5"/></linearGradient>
+    <linearGradient id="floor" x2="0" y2="1"><stop stop-color="#e7e4e1"/><stop offset="1" stop-color="#c9c6c3"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-40%" width="160%" height="200%"><feGaussianBlur stdDeviation="12"/></filter>
+  </defs>
+  <rect width="960" height="540" fill="url(#bg)"/>
+  <path d="M0 400 Q480 365 960 400 V540 H0Z" fill="url(#floor)"/>
+  <ellipse cx="486" cy="418" rx="352" ry="35" fill="#77716d" opacity=".25" filter="url(#shadow)"/>
+  <g stroke="#70452e" stroke-opacity=".12" stroke-width="5" stroke-linejoin="round">
+    <!-- red stacking rings -->
+    <path fill="#d93420" d="M178 347h112v26c0 18-25 32-56 32s-56-14-56-32z"/><ellipse cx="234" cy="347" rx="56" ry="19" fill="#f24b32"/><path fill="#b92519" d="M190 320h88v25c0 13-20 24-44 24s-44-11-44-24z"/><ellipse cx="234" cy="320" rx="44" ry="16" fill="#ff6040"/><path fill="#c77c4f" d="M222 269h24v47h-24z"/><ellipse cx="234" cy="269" rx="12" ry="7" fill="#e8aa75"/>
+    <!-- orange shape sorter -->
+    <path fill="#e57943" d="M314 317h104v77H314z"/><path fill="#f0925d" d="M314 317l22-20h104l-22 20z"/><path fill="#c85b32" d="M418 317l22-20v77l-22 20z"/><circle cx="373" cy="352" r="14" fill="#f0dfc2"/>
+    <!-- yellow stack -->
+    <path fill="#e9b900" d="M440 362h122v31H440z"/><path fill="#ffda16" d="M453 333h96v29h-96z"/><path fill="#f6c600" d="M467 306h68v27h-68z"/><path fill="#dfad00" d="M482 279h18v28h-18z"/><ellipse cx="491" cy="279" rx="9" ry="5" fill="#f4d59c"/>
+    <!-- green peg board -->
+    <path fill="#087f5d" d="M585 345h123v54H585z"/><path fill="#12a778" d="M585 345l17-18h123l-17 18z"/><path fill="#086b51" d="M708 345l17-18v54l-17 18z"/>
+    <g fill="#c79a6a"><path d="M608 296h18v49h-18z"/><ellipse cx="617" cy="296" rx="9" ry="5" fill="#e6bd88"/><path d="M650 289h18v56h-18z"/><ellipse cx="659" cy="289" rx="9" ry="5" fill="#e6bd88"/><path d="M686 299h18v46h-18z"/><ellipse cx="695" cy="299" rx="9" ry="5" fill="#e6bd88"/></g>
+    <!-- blue geometric sorter -->
+    <path fill="#1687b7" d="M759 326l64-35 61 35v70l-61 34-64-34z"/><path fill="#27a4d5" d="M759 326l64-35v69l-64 36z"/><path fill="#0874a4" d="M823 360l61-34v70l-61 34z"/><path fill="#1592c3" d="M823 291l61 35-61 34-64-34z"/>
+    <g fill="#d7d0bf"><circle cx="789" cy="338" r="12"/><circle cx="850" cy="338" r="12"/><circle cx="789" cy="382" r="12"/><circle cx="850" cy="382" r="12"/></g>
+    <!-- loose wooden pieces -->
+    <path fill="#d93621" d="M245 414h65v17h-65z"/><ellipse cx="277" cy="414" rx="32" ry="9" fill="#f34931"/><path fill="#c77c4f" d="M348 411h18v36h-18z"/><ellipse cx="357" cy="411" rx="9" ry="6" fill="#e9b985"/>
+    <path fill="#f0c400" d="M397 409l70 3-24 22-70-3z"/><path fill="#0b956c" d="M500 405h72v32h-72z"/><circle cx="520" cy="421" r="7" fill="#085b48"/><circle cx="551" cy="421" r="7" fill="#085b48"/>
+  </g>
+</svg>
