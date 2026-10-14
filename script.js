@@ -111,7 +111,7 @@ if (orderForm && quantityDisplay && quantityInput) {
       orderForm.reset();
       quantityInput.value = '1';
       quantityDisplay.textContent = '1';
-      status.textContent = 'অর্ডারটি পাঠানো হয়েছে। আমরা ফোনে যোগাযোগ করব।';
+      status.textContent = 'আপনার অর্ডারটি পাঠানো হয়েছে। আমরা শীঘ্রই ফোনে আপনার সঙ্গে যোগাযোগ করব। আরও পণ্য অর্ডার করতে চাইলে, আগের মতোই পছন্দের পণ্য নির্বাচন করে অর্ডার প্রক্রিয়া সম্পন্ন করুন।';
       status.dataset.state = 'success';
     } catch {
       status.textContent = 'অর্ডার পাঠানো যায়নি। আবার চেষ্টা করুন অথবা ফোনে যোগাযোগ করুন।';
