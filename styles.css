@@ -194,22 +194,23 @@ body {
 .combo-offers__heading h2 { margin: 0; color: #26342e; font-size: clamp(32px, 3vw, 42px); font-weight: 700; letter-spacing: -.035em; line-height: 1.25; }
 .combo-offers__intro { max-width: 440px; margin: 0 0 4px auto; color: #7b8780; font-size: 16px; line-height: 1.8; }
 .combo-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
-.combo-card { min-width: 0; overflow: hidden; border: 1px solid #e0e9e3; border-radius: 20px; background: #fff; box-shadow: 0 12px 30px rgba(29, 67, 46, .075); transition: transform .24s ease, box-shadow .24s ease; }
+.combo-card { min-width: 0; height: 100%; overflow: hidden; display: flex; flex-direction: column; border: 1px solid #e0e9e3; border-radius: 20px; background: #fff; box-shadow: 0 12px 30px rgba(29, 67, 46, .075); transition: transform .24s ease, box-shadow .24s ease; }
 .combo-card:hover { transform: translateY(-4px); box-shadow: 0 18px 38px rgba(29, 67, 46, .12); }
 .combo-card__visual { position: relative; width: 100%; aspect-ratio: 1.58 / 1; overflow: hidden; background: #f7f7f3; }
+.combo-card__badge { position: absolute; top: 13px; left: 13px; z-index: 2; padding: 6px 11px 5px; border: 1px solid rgba(255,255,255,.28); border-radius: 999px; color: #fff; background: var(--green); box-shadow: 0 4px 12px rgba(20,73,49,.2); font-size: 12px; font-weight: 600; line-height: 1.35; }
 .combo-card__image, .combo-card__video { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
 .combo-card__image { background: #f7f7f3; }
 .combo-card__video[hidden], .combo-card__play[hidden] { display: none; }
 .combo-card__play { position: absolute; top: 13px; right: 13px; width: 48px; height: 48px; padding: 0 0 0 2px; display: grid; place-items: center; border: 2px solid rgba(255,255,255,.9); border-radius: 50%; color: #fff; background: var(--green); box-shadow: 0 4px 13px rgba(25,57,39,.22); cursor: pointer; transition: background .2s ease, box-shadow .2s ease, scale .2s ease; }
 .combo-card__play:hover { background: #176e4a; box-shadow: 0 6px 17px rgba(25,57,39,.3); scale: 1.06; }
 .combo-card__play svg { width: 21px; height: 21px; }
-.combo-card__body { padding: 22px 21px 20px; }
+.combo-card__body { flex: 1; padding: 22px 21px 20px; display: flex; flex-direction: column; }
 .combo-card__count { margin: 0 0 3px; color: var(--green); font-size: 13px; font-weight: 600; }
 .combo-card h3 { margin: 0 0 10px; color: #26342e; font-size: 21px; font-weight: 500; line-height: 1.4; }
 .combo-card__features { min-height: 102px; margin: 0 0 17px; padding: 13px 15px; display: grid; align-content: center; gap: 6px; border-radius: 13px; color: #718078; background: #f0f7f2; list-style: none; }
 .combo-card__features li { position: relative; padding-left: 21px; font-size: 14px; line-height: 1.5; }
 .combo-card__features li::before { position: absolute; top: 0; left: 0; color: var(--green); content: '✓'; font: 600 16px/1.4 Arial, sans-serif; }
-.combo-card__footer { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.combo-card__footer { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .combo-card__price { margin: 0; color: #174d38; font-size: 23px; font-weight: 700; white-space: nowrap; }
 .combo-card__order { min-height: 43px; padding: 0 14px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; border-radius: 11px; color: #fff; background: var(--green); box-shadow: 0 7px 16px rgba(33,134,92,.16); font-size: 14px; font-weight: 600; text-decoration: none; white-space: nowrap; transition: background .2s ease, transform .2s ease; }
 .combo-card__order:hover { background: #19744e; transform: translateY(-1px); }
@@ -222,12 +223,12 @@ body {
 .products__heading h2 { margin: 0; color: #26342e; font-size: clamp(34px, 3.2vw, 43px); font-weight: 700; letter-spacing: -.035em; line-height: 1.25; }
 .products__intro { margin: 8px 0 0; color: #818b84; font-size: 16px; line-height: 1.6; }
 .products-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
-.product-card { min-width: 0; overflow: hidden; border: 1px solid #e1e9e3; border-radius: 17px; background: #fff; box-shadow: 0 8px 22px rgba(29,67,46,.045); transition: transform .22s ease, box-shadow .22s ease; }
+.product-card { min-width: 0; height: 100%; overflow: hidden; display: flex; flex-direction: column; border: 1px solid #e1e9e3; border-radius: 17px; background: #fff; box-shadow: 0 8px 22px rgba(29,67,46,.045); transition: transform .22s ease, box-shadow .22s ease; }
 .product-card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(29,67,46,.1); }
 .product-card__visual { aspect-ratio: 1.42 / 1; }
 .product-card__badge { position: absolute; top: 13px; left: 13px; z-index: 1; padding: 6px 11px 5px; border-radius: 999px; color: #39502e; background: #f6d765; font-size: 12px; font-weight: 600; }
 .combo-card__visual.is-playing .product-card__badge { display: none; }
-.product-card__body { min-height: 151px; padding: 13px 15px 14px; display: flex; flex-direction: column; }
+.product-card__body { min-height: 151px; flex: 1; padding: 13px 15px 14px; display: flex; flex-direction: column; }
 .product-card__body h3 { margin: 0 0 5px; color: #27362f; font-size: 18px; font-weight: 500; line-height: 1.4; }
 .product-card__body > p { margin: 0 0 12px; color: #78847c; font-size: 13px; line-height: 1.55; }
 .product-card__footer { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 7px; }
