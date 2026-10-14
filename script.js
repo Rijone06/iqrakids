@@ -60,17 +60,67 @@ document.querySelectorAll('.faq-question').forEach((question) => {
 });
 
 const orderForm = document.querySelector('#order-form');
-const quantityDisplay = document.querySelector('#quantity-value');
-const quantityInput = orderForm?.querySelector('input[name="quantity"]');
+const productList = orderForm?.querySelector('#order-products');
+const productTemplate = orderForm?.querySelector('#order-product-template');
+const productCountInput = orderForm?.querySelector('input[name="product_types"]');
+const productCountDisplay = orderForm?.querySelector('#product-count-value');
+const orderConfirmation = document.querySelector('#order-confirmation');
 
-if (orderForm && quantityDisplay && quantityInput) {
-  orderForm.querySelectorAll('[data-quantity-step]').forEach((button) => {
+if (orderForm && productList && productTemplate && productCountInput && productCountDisplay) {
+  const renderProductRows = (count, initialProduct = '', preserveExisting = false) => {
+    const previousRows = preserveExisting
+      ? Array.from(productList.querySelectorAll('.order-product-item')).map((row) => ({
+          product: row.querySelector('select')?.value ?? '',
+          quantity: row.querySelector('input[type="hidden"]')?.value ?? '1'
+        }))
+      : [];
+    productList.replaceChildren();
+    for (let index = 1; index <= count; index += 1) {
+      const row = productTemplate.content.firstElementChild.cloneNode(true);
+      const select = row.querySelector('select');
+      const quantityControl = row.querySelector('.quantity-control');
+      const quantityDisplay = row.querySelector('output');
+      const quantityInput = row.querySelector('input[type="hidden"]');
+
+      select.name = `product_${index}`;
+      select.setAttribute('aria-label', `পণ্য ${index} নির্বাচন করুন`);
+      quantityControl.setAttribute('aria-label', `পণ্য ${index}-এর পরিমাণ`);
+      row.querySelector('.order-product-item__quantity-label').id = `item-quantity-label-${index}`;
+      quantityControl.setAttribute('aria-labelledby', `item-quantity-label-${index}`);
+      quantityInput.name = `quantity_${index}`;
+      if (previousRows[index - 1]) {
+        select.value = previousRows[index - 1].product;
+        quantityInput.value = previousRows[index - 1].quantity;
+        quantityDisplay.textContent = previousRows[index - 1].quantity;
+      } else if (index === 1 && initialProduct) {
+        select.value = initialProduct;
+      }
+      productList.append(row);
+    }
+    productCountInput.value = String(count);
+    productCountDisplay.textContent = String(count);
+  };
+
+  renderProductRows(1, '64 Pages IQRA Intelligence Book');
+
+  orderForm.querySelectorAll('[data-product-count-step]').forEach((button) => {
     button.addEventListener('click', () => {
-      const step = Number(button.dataset.quantityStep);
-      const quantity = Math.min(99, Math.max(1, Number(quantityInput.value) + step));
-      quantityInput.value = String(quantity);
-      quantityDisplay.textContent = String(quantity);
+      const step = Number(button.dataset.productCountStep);
+      const count = Math.min(8, Math.max(1, Number(productCountInput.value) + step));
+      renderProductRows(count, '', true);
     });
+  });
+
+  productList.addEventListener('click', (event) => {
+    const button = event.target.closest('[data-item-quantity-step]');
+    if (!button) return;
+    const row = button.closest('.order-product-item');
+    const input = row?.querySelector('input[type="hidden"]');
+    const display = row?.querySelector('output');
+    if (!input || !display) return;
+    const quantity = Math.min(99, Math.max(1, Number(input.value) + Number(button.dataset.itemQuantityStep)));
+    input.value = String(quantity);
+    display.textContent = String(quantity);
   });
 
   orderForm.addEventListener('submit', async (event) => {
@@ -86,7 +136,13 @@ if (orderForm && quantityDisplay && quantityInput) {
     const submitButton = orderForm.querySelector('.order-form__submit');
     const formData = new FormData(orderForm);
     const payload = Object.fromEntries(formData.entries());
-    payload._subject = `নতুন অর্ডার — ${formData.get('product')}`;
+    const orderDetails = Array.from({ length: Number(productCountInput.value) }, (_, index) => {
+      const product = formData.get(`product_${index + 1}`);
+      const quantity = formData.get(`quantity_${index + 1}`);
+      return `${index + 1}. ${product} — পরিমাণ: ${quantity}`;
+    });
+    payload['অর্ডার করা পণ্য'] = orderDetails.join('\n');
+    payload._subject = `নতুন অর্ডার — ${orderDetails.map((line) => line.replace(/^\d+\. /, '')).join(', ')}`;
     payload._template = 'table';
 
     if (submitButton) submitButton.disabled = true;
@@ -109,10 +165,15 @@ if (orderForm && quantityDisplay && quantityInput) {
       }
 
       orderForm.reset();
-      quantityInput.value = '1';
-      quantityDisplay.textContent = '1';
-      status.textContent = 'আপনার অর্ডারটি পাঠানো হয়েছে। আমরা শীঘ্রই ফোনে আপনার সঙ্গে যোগাযোগ করব। আরও পণ্য অর্ডার করতে চাইলে, আগের মতোই পছন্দের পণ্য নির্বাচন করে অর্ডার প্রক্রিয়া সম্পন্ন করুন।';
-      status.dataset.state = 'success';
+      renderProductRows(1, '64 Pages IQRA Intelligence Book');
+      status.textContent = '';
+      delete status.dataset.state;
+      if (orderConfirmation?.showModal) {
+        orderConfirmation.showModal();
+      } else {
+        status.textContent = 'ধন্যবাদ! আপনার অর্ডারটি সফলভাবে জমা হয়েছে। আমরা শীঘ্রই ফোনে যোগাযোগ করব।';
+        status.dataset.state = 'success';
+      }
     } catch {
       status.textContent = 'অর্ডার পাঠানো যায়নি। আবার চেষ্টা করুন অথবা ফোনে যোগাযোগ করুন।';
       status.dataset.state = 'error';

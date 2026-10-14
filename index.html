@@ -305,9 +305,9 @@
               <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1" hidden><p>
 ১. আপনার পছন্দের পণ্যের নিচে থাকা <b>“অর্ডার করুন”</b> বাটনে ক্লিক করুন।<br>
 
-২. অর্ডার ফর্মে আপনার নাম, মোবাইল নম্বর, পছন্দের পণ্য, সঠিক পরিমাণ এবং সম্পূর্ণ ঠিকানা দিন। সব তথ্য সঠিকভাবে পূরণ করে <b>“অর্ডার জমা দিন”</b> বাটনে ক্লিক করুন।<br>
+২. অর্ডার ফর্মে আপনার নাম, মোবাইল নম্বর ও ঠিকানা দিন। পণ্যের সংখ্যা বাড়াতে <b>+</b> বাটনে ক্লিক করুন, তারপর প্রতিটি পণ্য ও তার পরিমাণ নির্বাচন করুন।<br>
 
-৩. একাধিক পণ্য অর্ডার করতে চাইলে প্রতিটি পণ্যের জন্য একই প্রক্রিয়া অনুসরণ করুন।<br>
+৩. সব তথ্য সঠিকভাবে পূরণ করে <b>“অর্ডার জমা দিন”</b> বাটনে ক্লিক করুন।<br>
 
 ৪. আপনি চাইলে আমাদের <b>Facebook পেজ অথবা WhatsApp</b>-এর মাধ্যমেও অর্ডার করতে পারবেন।<br>
 
@@ -387,35 +387,50 @@
               <span>মোবাইল নম্বর <b>*</b></span>
               <input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="01XXXXXXXXX" required>
             </label>
-            <label class="order-field">
-              <span>পণ্য নির্বাচন করুন <b>*</b></span>
-              <select name="product" required>
-                <optgroup label="কম্বো প্যাক">
-                  <option value="IQRA Mega Combo">IQRA Mega Combo</option>
-                  <option value="IQRA ">IQRA </option>
-                  <option value="ছোট শিক্ষার্থী কম্বো">ছোট শিক্ষার্থী কম্বো</option>
-                </optgroup>
-                <optgroup label="সকল পণ্য">
-                  <option value="64 Pages IQRA Intelligence Book" selected>64 Pages IQRA Intelligence Book</option>
-                  <option value="Kids Folding Table with Letters">Kids Folding Table with Letters</option>
-                  <option value="Magic Writing Book">Magic Writing Book</option>
-                  <option value="Multipurpose Magnetic Education Board">Multipurpose Magnetic Education Board</option>
-                  <option value="LCD Writing Tablet">LCD Writing Tablet</option>
-                  <option value="Water Magic Book">Water Magic Book</option>
-                  <option value="Flash Cards">Flash Cards</option>
-                  <option value="Building Blocks">Building Blocks</option>
-                </optgroup>
-              </select>
-            </label>
-            <div class="order-field">
-              <span id="quantity-label">পরিমাণ</span>
-              <div class="quantity-control" role="group" aria-labelledby="quantity-label">
-                <button class="quantity-control__button" type="button" data-quantity-step="-1" aria-label="পরিমাণ কমান">−</button>
-                <output class="quantity-control__value" id="quantity-value" aria-live="polite">1</output>
-                <input type="hidden" name="quantity" value="1">
-                <button class="quantity-control__button" type="button" data-quantity-step="1" aria-label="পরিমাণ বাড়ান">+</button>
+            <div class="order-field order-field--wide order-product-count-field">
+              <span id="product-count-label">কত ধরনের পণ্য অর্ডার করবেন?</span>
+              <div class="quantity-control order-product-count" role="group" aria-labelledby="product-count-label">
+                <button class="quantity-control__button" type="button" data-product-count-step="-1" aria-label="পণ্যের সংখ্যা কমান">−</button>
+                <output class="quantity-control__value" id="product-count-value" aria-live="polite">1</output>
+                <input type="hidden" name="product_types" value="1">
+                <button class="quantity-control__button" type="button" data-product-count-step="1" aria-label="পণ্যের সংখ্যা বাড়ান">+</button>
               </div>
             </div>
+            <div class="order-product-list order-field--wide" id="order-products" aria-live="polite"></div>
+            <template id="order-product-template">
+              <div class="order-product-item">
+                <label class="order-field order-product-item__select">
+                  <span>পণ্য নির্বাচন করুন <b>*</b></span>
+                  <select required>
+                    <option value="" selected disabled>পণ্য বেছে নিন</option>
+                    <optgroup label="কম্বো প্যাক">
+                      <option value="IQRA Mega Combo">IQRA Mega Combo</option>
+                      <option value="IQRA Premium Combo">IQRA Premium Combo</option>
+                      <option value="IQRA Discovery Combo">IQRA Discovery Combo</option>
+                    </optgroup>
+                    <optgroup label="সকল পণ্য">
+                      <option value="64 Pages IQRA Intelligence Book">64 Pages IQRA Intelligence Book</option>
+                      <option value="Kids Folding Table with Letters">Kids Folding Table with Letters</option>
+                      <option value="Magic Writing Book">Magic Writing Book</option>
+                      <option value="Multipurpose Magnetic Education Board">Multipurpose Magnetic Education Board</option>
+                      <option value="LCD Writing Tablet">LCD Writing Tablet</option>
+                      <option value="Water Magic Book">Water Magic Book</option>
+                      <option value="Flash Cards">Flash Cards</option>
+                      <option value="Building Blocks">Building Blocks</option>
+                    </optgroup>
+                  </select>
+                </label>
+                <div class="order-field order-product-item__quantity">
+                  <span class="order-product-item__quantity-label">পরিমাণ</span>
+                  <div class="quantity-control" role="group">
+                    <button class="quantity-control__button" type="button" data-item-quantity-step="-1" aria-label="পরিমাণ কমান">−</button>
+                    <output class="quantity-control__value" aria-live="polite">1</output>
+                    <input type="hidden" value="1">
+                    <button class="quantity-control__button" type="button" data-item-quantity-step="1" aria-label="পরিমাণ বাড়ান">+</button>
+                  </div>
+                </div>
+              </div>
+            </template>
             <label class="order-field order-field--wide">
               <span>সম্পূর্ণ ডেলিভারি ঠিকানা <b>*</b></span>
               <textarea name="address" rows="3" autocomplete="street-address" placeholder="বাড়ি, সড়ক, এলাকা, থানা ও জেলার নাম লিখুন" required></textarea>
@@ -431,6 +446,15 @@
         </form>
       </div>
     </section>
+    <dialog class="order-confirmation" id="order-confirmation" aria-labelledby="order-confirmation-title" aria-describedby="order-confirmation-message">
+      <div class="order-confirmation__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <p class="order-confirmation__eyebrow">Iqra Kids</p>
+      <h2 id="order-confirmation-title">ধন্যবাদ!</h2>
+      <p id="order-confirmation-message">আপনার অর্ডারটি সফলভাবে জমা হয়েছে। অর্ডার নিশ্চিত করতে আমাদের প্রতিনিধি শিগগিরই আপনার সঙ্গে ফোনে যোগাযোগ করবেন।</p>
+      <form method="dialog"><button class="order-confirmation__button" autofocus>ঠিক আছে</button></form>
+    </dialog>
   </main>
   <footer class="site-footer">
     <div class="site-footer__inner">

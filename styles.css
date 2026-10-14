@@ -317,6 +317,11 @@ body {
 .quantity-control__button:first-child { border-right: 1px solid #e1e8e2; }
 .quantity-control__button:last-child { border-left: 1px solid #e1e8e2; }
 .quantity-control__value { display: grid; place-items: center; color: #174d38; font-size: 18px; font-weight: 600; }
+.order-product-count { max-width: 220px; }
+.order-product-list { display: grid; gap: 12px; }
+.order-product-item { min-width: 0; padding: 13px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(130px, .42fr); align-items: end; gap: 13px; border: 1px solid #e4ebe5; border-radius: 12px; background: #fcfdfc; }
+.order-product-item__select select { min-width: 0; }
+.order-product-item__quantity { min-width: 0; }
 .order-form__submit { min-height: 48px; grid-column: 1 / -1; display: flex; align-items: center; justify-content: center; gap: 10px; border: 0; border-radius: 11px; color: #fff; background: var(--green); box-shadow: 0 9px 18px rgba(33,134,92,.2); font: 600 15px 'Hind Siliguri', 'Noto Sans Bengali', sans-serif; cursor: pointer; transition: background .2s ease, transform .2s ease, box-shadow .2s ease; }
 .order-form__submit:hover { background: #19744e; box-shadow: 0 12px 23px rgba(33,134,92,.26); transform: translateY(-1px); }
 .order-form__submit:disabled { cursor: wait; opacity: .72; transform: none; }
@@ -327,6 +332,16 @@ body {
 .order-form__status[data-state="success"] { color: var(--green-dark); }
 .order-form__status[data-state="sending"] { color: #718078; }
 .order-form__status:empty { display: none; }
+.order-confirmation { width: min(440px, calc(100% - 32px)); padding: 34px 32px 30px; border: 1px solid #dce9df; border-radius: 22px; color: var(--ink); background: #fff; box-shadow: 0 24px 80px rgba(5,36,23,.24); text-align: center; }
+.order-confirmation::backdrop { background: rgba(7,35,24,.62); backdrop-filter: blur(4px); }
+.order-confirmation__icon { width: 58px; height: 58px; margin: 0 auto 14px; display: grid; place-items: center; border-radius: 18px; color: #fff; background: var(--green); box-shadow: 0 9px 20px rgba(33,134,92,.2); }
+.order-confirmation__icon svg { width: 30px; height: 30px; }
+.order-confirmation__eyebrow { margin: 0 0 2px; color: var(--green); font-size: 13px; font-weight: 600; }
+.order-confirmation h2 { margin: 0 0 8px; color: #233a2d; font-size: 30px; font-weight: 700; }
+.order-confirmation > p:last-of-type { margin: 0; color: #6f7c73; font-size: 15px; line-height: 1.75; }
+.order-confirmation form { margin-top: 23px; }
+.order-confirmation__button { width: 100%; min-height: 46px; border: 0; border-radius: 10px; color: #fff; background: var(--green); font: 600 14px 'Hind Siliguri', 'Noto Sans Bengali', sans-serif; cursor: pointer; transition: background .2s ease; }
+.order-confirmation__button:hover { background: #19744e; }
 
 .site-footer { color: #c2d4ca; background: #092d21; }
 .site-footer__inner { width: min(var(--page-width), calc(100% - 48px)); margin: 0 auto; }
@@ -481,6 +496,8 @@ a:focus-visible, button:focus-visible { outline: 3px solid #f2c856; outline-offs
   .order-field input, .order-field select, .order-field textarea { min-height: 43px; padding-inline: 10px; font-size: 13px; }
   .order-field textarea { padding-top: 9px; }
   .quantity-control { min-height: 43px; grid-template-columns: 36px 1fr 36px; }
+  .order-product-count { max-width: none; }
+  .order-product-item { padding: 10px; grid-template-columns: minmax(0, 1fr) minmax(106px, .42fr); gap: 9px; }
   .order-form__submit { min-height: 46px; font-size: 14px; }
 }
 
@@ -528,6 +545,10 @@ a:focus-visible, button:focus-visible { outline: 3px solid #f2c856; outline-offs
   .order-form { padding: 19px 14px 16px; }
   .order-form__grid { grid-template-columns: 1fr; gap: 13px; }
   .order-field--wide, .order-form__submit, .order-form__privacy, .order-form__status { grid-column: 1; }
+  .order-product-item { grid-template-columns: 1fr; gap: 11px; }
+  .order-confirmation { padding: 29px 22px 23px; border-radius: 18px; }
+  .order-confirmation h2 { font-size: 27px; }
+  .order-confirmation > p:last-of-type { font-size: 14px; }
 }
 
 @media (max-width: 900px) {
