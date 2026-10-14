@@ -178,6 +178,7 @@ body {
 .hero__orbit { position: absolute; z-index: -1; width: 330px; aspect-ratio: 1; border: 1px solid rgba(112,170,132,.18); border-radius: 50%; pointer-events: none; }
 .hero__orbit--top { top: -178px; right: 17.7%; }
 .hero__orbit--left { bottom: -222px; left: -184px; width: 332px; }
+.hero__scroll { display: none; }
 
 .combo-offers {
   position: relative;
@@ -314,7 +315,7 @@ body {
 .quantity-control__button:hover { color: var(--green); background: #eaf4ed; }
 .quantity-control__button:first-child { border-right: 1px solid #e1e8e2; }
 .quantity-control__button:last-child { border-left: 1px solid #e1e8e2; }
-.quantity-control__value { display: grid; place-items: center; color: #33433a; font-size: 15px; font-weight: 500; }
+.quantity-control__value { display: grid; place-items: center; color: #174d38; font-size: 18px; font-weight: 600; }
 .order-form__submit { min-height: 48px; grid-column: 1 / -1; display: flex; align-items: center; justify-content: center; gap: 10px; border: 0; border-radius: 11px; color: #fff; background: var(--green); box-shadow: 0 9px 18px rgba(33,134,92,.2); font: 600 15px 'Hind Siliguri', 'Noto Sans Bengali', sans-serif; cursor: pointer; transition: background .2s ease, transform .2s ease, box-shadow .2s ease; }
 .order-form__submit:hover { background: #19744e; box-shadow: 0 12px 23px rgba(33,134,92,.26); transform: translateY(-1px); }
 .order-form__submit:disabled { cursor: wait; opacity: .72; transform: none; }
@@ -405,6 +406,9 @@ a:focus-visible, button:focus-visible { outline: 3px solid #f2c856; outline-offs
   .hero__seal strong { font-size: 17px; }
   .hero__orbit--top { right: -190px; }
   .hero__orbit--left { left: -225px; }
+  .hero__scroll { position: absolute; bottom: 17px; left: 50%; display: inline-flex; align-items: center; gap: 7px; color: #63766a; font-size: 12px; font-weight: 500; text-decoration: none; transform: translateX(-50%); white-space: nowrap; }
+  .hero__scroll svg { width: 17px; height: 17px; color: var(--green); animation: scroll-nudge 1.8s ease-in-out infinite; }
+  @keyframes scroll-nudge { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
   .combo-offers { padding: 62px 0 68px; }
   .combo-offers__inner { width: min(100% - 36px, 540px); }
   .combo-offers__heading { margin-bottom: 27px; grid-template-columns: 1fr; gap: 9px; }
@@ -577,5 +581,5 @@ a:focus-visible, button:focus-visible { outline: 3px solid #f2c856; outline-offs
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }

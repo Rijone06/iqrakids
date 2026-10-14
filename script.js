@@ -64,14 +64,12 @@ const quantityDisplay = document.querySelector('#quantity-value');
 const quantityInput = orderForm?.querySelector('input[name="quantity"]');
 
 if (orderForm && quantityDisplay && quantityInput) {
-  const bengaliDigits = '০১২৩৪৫৬৭৮৯';
-
   orderForm.querySelectorAll('[data-quantity-step]').forEach((button) => {
     button.addEventListener('click', () => {
       const step = Number(button.dataset.quantityStep);
       const quantity = Math.min(99, Math.max(1, Number(quantityInput.value) + step));
       quantityInput.value = String(quantity);
-      quantityDisplay.textContent = String(quantity).replace(/\d/g, (digit) => bengaliDigits[Number(digit)]);
+      quantityDisplay.textContent = String(quantity);
     });
   });
 
@@ -112,7 +110,7 @@ if (orderForm && quantityDisplay && quantityInput) {
 
       orderForm.reset();
       quantityInput.value = '1';
-      quantityDisplay.textContent = '১';
+      quantityDisplay.textContent = '1';
       status.textContent = 'অর্ডারটি পাঠানো হয়েছে। আমরা ফোনে যোগাযোগ করব।';
       status.dataset.state = 'success';
     } catch {
