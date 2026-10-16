@@ -850,6 +850,9 @@ a:focus-visible, button:focus-visible { outline: 3px solid #f2c856; outline-offs
 }
 
 @media (max-width: 520px) {
+  .order { padding-top: 26px; }
+  .order__inner { gap: 8px; }
+  .order-steps { display: none; }
   .home-journal.journal-section { padding: 34px 0 38px; }
   .journal-container { width: calc(100% - 36px); }
   .journal-hero { padding: 56px 18px 62px; }
